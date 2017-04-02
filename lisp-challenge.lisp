@@ -1,6 +1,5 @@
 ;; Common Lisp Script
 ;; Manoel Vilela
-
 ;; level 0 -- evaluation
 (defun level-0 ()
   (expt 2 38))
@@ -118,3 +117,16 @@
 
 (defun level-4 ()
   (following-nothing-chain))
+
+-- level 5
+
+(defun char-repeat (char n)
+  (map 'string #'identity
+       (loop repeat n
+         collect char)))
+
+(defun level-5 (&optional (path "level-5.txt"))
+  (let ((lines (read-from-string (read-file path))))
+    (loop for line in lines
+          for translate = (loop for (c n) in line collect (char-repeat c n))
+          do (format t "~{~a~}~%" translate))))
