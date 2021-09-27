@@ -116,9 +116,9 @@
             do (format t "~a " chain)))))
 
 (defun level-4 ()
-  (following-nothing-chain))
+  (follow-nothing-chain))
 
--- level 5
+;; level 5
 
 (defun char-repeat (char n)
   (map 'string #'identity
